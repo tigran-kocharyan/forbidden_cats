@@ -1,5 +1,5 @@
 # List of required packages (Dependencies)
-redis
+requests
 python-telegram-bot
 
 
