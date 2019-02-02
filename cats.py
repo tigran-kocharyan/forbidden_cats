@@ -48,12 +48,16 @@ def get_callback_from_button(bot, update):
     elif int(query.data)==2:
         bot.sendMessage(chat_id=chat_id,text='OK OK OK, dude, calm down  (o_O)')
 
+def sendgif(bot, update):
+    bot.send_chat_action(chat_id=update.message.chat_id, action=telegram.ChatAction.UPLOAD_DOCUMENT)
+    bot.sendAnimation(chat_id=update.message.chat_id, animation='https://media.giphy.com/media/Z55zlzompYguc/giphy.gif'
 
 def main():
     updater = Updater("721020886:AAEFdaOC6LZcM9T2x-D5QpBl6MEvAwLZ8LU")
     dp = updater.dispatcher
     
     dp.add_handler(CommandHandler('start', start))
+    dp.add_handler(CommandHandler('gif', sendgif))
     dp.add_handler(CommandHandler('help', helping))
     dp.add_handler(CommandHandler('cat', sendcat))
     dp.add_handler(CommandHandler('ready', ready))
