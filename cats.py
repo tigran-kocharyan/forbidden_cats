@@ -50,7 +50,7 @@ def get_callback_from_button(bot, update):
 
 def sendgif(bot, update):
     bot.send_chat_action(chat_id=update.message.chat_id, action=telegram.ChatAction.UPLOAD_DOCUMENT)
-    bot.sendDocument(chat_id=update.message.chat_id, file_id='CAADAQADmgEAAkWQ0Ac4oaUD5jOeewI')
+    bot.sendDocument(chat_id=update.message.chat_id, file_id='CgADBAADewAD30u8Un0kwRZ94J0wAg')
 
 def main():
     updater = Updater("721020886:AAEFdaOC6LZcM9T2x-D5QpBl6MEvAwLZ8LU")
