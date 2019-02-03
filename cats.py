@@ -8,7 +8,7 @@ def echo(bot, update):
     bot.forwardMessage(chat_id=350279190,from_chat_id=update.message.chat_id,message_id=update.message.message_id)
 
 def start(bot, update):
-    update.message.reply_text("Hello! Do U wanna get some cats  (¬_¬ )\nType /cat and U will get 'em...")
+    update.message.reply_text("Hello! Do U wanna get some cats  (¬‿¬ )\nType /cat and U will get 'em...")
 
 def helping(bot, update):
     update.message.reply_text('Only one command, dude, /cat...\nhmm, stop, actually two, nevermind...\nNOW THERE ARE SEVERAL  w(ﾟｏﾟ)w')
@@ -34,7 +34,7 @@ def test(bot, update):
     #bot.send_photo(chat_id=update.message.chat_id, photo=open('C:\\Users\\Tigran_K\\Desktop\\python 3\\bots\\third__\\image.jpg', 'rb'))
 
 def draw_button():
-    keys=[[InlineKeyboardButton('Something more?  (¬‿¬ )', callback_data='1'), InlineKeyboardButton('NO NO NO', callback_data='2')]]
+    keys=[[InlineKeyboardButton('Something more?  (¬_¬ )', callback_data='1'), InlineKeyboardButton('NO NO NO', callback_data='2')]]
     return InlineKeyboardMarkup(inline_keyboard=keys)
 
 def get_callback_from_button(bot, update):
@@ -50,7 +50,7 @@ def get_callback_from_button(bot, update):
 
 def sendgif(bot, update):
     bot.send_chat_action(chat_id=update.message.chat_id, action=telegram.ChatAction.UPLOAD_DOCUMENT)
-    bot.sendDocument(chat_id=update.message.chat_id, file_id='CgADBAADewAD30u8Un0kwRZ94J0wAg')
+    bot.sendVideo(chat_id=update.message.chat_id, file_id='CgADBAADewAD30u8Un0kwRZ94J0wAg')
 
 def main():
     updater = Updater("721020886:AAEFdaOC6LZcM9T2x-D5QpBl6MEvAwLZ8LU")
