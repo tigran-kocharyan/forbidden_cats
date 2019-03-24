@@ -33,9 +33,12 @@ def test(bot, update):
     bot.send_message(chat_id=update.message.chat_id,text='*GOT IT!*', parse_mode=telegram.ParseMode.MARKDOWN)
     #bot.send_photo(chat_id=update.message.chat_id, photo=open('C:\\Users\\Tigran_K\\Desktop\\python 3\\bots\\third__\\image.jpg', 'rb'))
 
-def draw_button():
+def draw_button_cats():
     keys=[[InlineKeyboardButton('Something more?  (¬_¬ )', callback_data='1'), InlineKeyboardButton('NO NO NO', callback_data='2')]]
     return InlineKeyboardMarkup(inline_keyboard=keys)
+def draw_button_communication():
+    keys_com=[[InlineKeyboardButton('Deny', callback_data='1'), InlineKeyboardButton('Random', callback_data='2'), InlineKeyboardButton('Manually', callback_data='3')]]
+    return InlineKeyboardMarkup(inline_keyboard=keys_com)
 
 def get_callback_from_button(bot, update):
     query = update.callback_query
@@ -44,14 +47,21 @@ def get_callback_from_button(bot, update):
     message_id = query.message.message_id
     if int(query.data) == 1:
         bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.UPLOAD_PHOTO)
-        bot.sendPhoto(photo=getcat(), chat_id=chat_id, message_id=message_id, reply_markup=draw_button())
+        bot.sendPhoto(photo=getcat(), chat_id=chat_id, message_id=message_id, reply_markup=draw_button_cats())
     elif int(query.data)==2:
         bot.sendMessage(chat_id=chat_id,text='OK OK OK, dude, calm down  (o_O)')
 
 def sendgif(bot, update):
     bot.send_chat_action(chat_id=update.message.chat_id, action=telegram.ChatAction.UPLOAD_DOCUMENT)
     bot.sendAnimation(chat_id=update.message.chat_id, animation='https://lifeo.ru/wp-content/uploads/kotiki-87.gif')
+    
+def communication(bot, update):
+    bot.sendMessage(chat_id=up.message.chat_id,text='We will procedure your application')
+    bot.sendMessage(chat_id=-367886782, text = f"User: {up.message.name}, ID: {up.message.from_user.id}", reply_markup=draw_button_communication()
+    
 
+#group = -367886782    
+    
 def main():
     updater = Updater("721020886:AAEFdaOC6LZcM9T2x-D5QpBl6MEvAwLZ8LU")
     dp = updater.dispatcher
@@ -61,6 +71,7 @@ def main():
     dp.add_handler(CommandHandler('help', helping))
     dp.add_handler(CommandHandler('cat', sendcat))
     dp.add_handler(CommandHandler('ready', ready))
+    dp.add_handler(CommandHandler('communication', communication))
     dp.add_handler(CommandHandler('test', test))
     dp.add_handler(CallbackQueryHandler(get_callback_from_button))
     dp.add_handler(MessageHandler(Filters.text, echo))
