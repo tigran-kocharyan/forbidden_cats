@@ -64,7 +64,7 @@ def communication(bot, update):
     
 
 #group = -367886782    
-
+dp = up.dispatcher
 dp.add_handler(CommandHandler('start', start))
 dp.add_handler(CommandHandler('gif', sendgif))
 dp.add_handler(CommandHandler('help', helping))
