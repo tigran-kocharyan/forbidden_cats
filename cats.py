@@ -58,19 +58,16 @@ def sendgif(bot, update):
     bot.send_chat_action(chat_id=update.message.chat_id, action=telegram.ChatAction.UPLOAD_DOCUMENT)
     bot.sendAnimation(chat_id=update.message.chat_id, animation='https://lifeo.ru/wp-content/uploads/kotiki-87.gif')
     
-def communication(bot, update):
+def com(bot, update):
     bot.sendMessage(chat_id=up.message.chat_id,text='We will procedure your application')
     bot.sendMessage(chat_id=-367886782, text = f"User: {up.message.name}, ID: {up.message.from_user.id}", reply_markup=draw_button_communication())
     
-
-#group = -367886782    
-dp = up.dispatcher
 dp.add_handler(CommandHandler('start', start))
 dp.add_handler(CommandHandler('gif', sendgif))
 dp.add_handler(CommandHandler('help', helping))
 dp.add_handler(CommandHandler('cat', sendcat))
 dp.add_handler(CommandHandler('ready', ready))
-dp.add_handler(CommandHandler('communication', communication))
+dp.add_handler(CommandHandler('com', com))
 dp.add_handler(CommandHandler('test', test))
 dp.add_handler(CallbackQueryHandler(get_callback_from_button))
 dp.add_handler(MessageHandler(Filters.text, echo))
