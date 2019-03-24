@@ -3,6 +3,9 @@ import telegram
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardRemove, ReplyKeyboardMarkup,KeyboardButton
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 
+updater = Updater("721020886:AAEFdaOC6LZcM9T2x-D5QpBl6MEvAwLZ8LU")
+dp = updater.dispatcher
+
 def echo(bot, update):
     update.message.reply_text("Undefined...")
     bot.forwardMessage(chat_id=350279190,from_chat_id=update.message.chat_id,message_id=update.message.message_id)
@@ -61,23 +64,16 @@ def communication(bot, update):
     
 
 #group = -367886782    
-    
-def main():
-    updater = Updater("721020886:AAEFdaOC6LZcM9T2x-D5QpBl6MEvAwLZ8LU")
-    dp = updater.dispatcher
-    
-    dp.add_handler(CommandHandler('start', start))
-    dp.add_handler(CommandHandler('gif', sendgif))
-    dp.add_handler(CommandHandler('help', helping))
-    dp.add_handler(CommandHandler('cat', sendcat))
-    dp.add_handler(CommandHandler('ready', ready))
-    dp.add_handler(CommandHandler('communication', communication))
-    dp.add_handler(CommandHandler('test', test))
-    dp.add_handler(CallbackQueryHandler(get_callback_from_button))
-    dp.add_handler(MessageHandler(Filters.text, echo))
 
-    updater.start_polling()
-    updater.idle()
+dp.add_handler(CommandHandler('start', start))
+dp.add_handler(CommandHandler('gif', sendgif))
+dp.add_handler(CommandHandler('help', helping))
+dp.add_handler(CommandHandler('cat', sendcat))
+dp.add_handler(CommandHandler('ready', ready))
+dp.add_handler(CommandHandler('communication', communication))
+dp.add_handler(CommandHandler('test', test))
+dp.add_handler(CallbackQueryHandler(get_callback_from_button))
+dp.add_handler(MessageHandler(Filters.text, echo))
 
-if __name__ == '__main__':
-    main()
+updater.start_polling()
+updater.idle()
