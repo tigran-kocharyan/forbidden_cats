@@ -26,7 +26,7 @@ def getcat():
 
 def sendcat(bot, up):
     bot.send_chat_action(chat_id=up.message.chat_id, action=telegram.ChatAction.UPLOAD_PHOTO)
-    bot.sendPhoto(chat_id=up.message.chat_id, photo=getcat(),reply_markup=draw_button())
+    bot.sendPhoto(chat_id=up.message.chat_id, photo=getcat(),reply_markup=draw_button_cats())
 
 def ready(bot, up):
     up.message.reply_text("Ready...")
@@ -39,6 +39,7 @@ def test(bot, up):
 def draw_button_cats():
     keys=[[InlineKeyboardButton('Something more?  (¬_¬ )', callback_data='1'), InlineKeyboardButton('NO NO NO', callback_data='2')]]
     return InlineKeyboardMarkup(inline_keyboard=keys)
+
 def draw_button_communication():
     keys_com=[[InlineKeyboardButton('Deny', callback_data='1'), InlineKeyboardButton('Random', callback_data='2'), InlineKeyboardButton('Manually', callback_data='3')]]
     return InlineKeyboardMarkup(inline_keyboard=keys_com)
