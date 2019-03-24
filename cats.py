@@ -60,7 +60,7 @@ def sendgif(bot, update):
     
 def communication(bot, update):
     bot.sendMessage(chat_id=up.message.chat_id,text='We will procedure your application')
-    bot.sendMessage(chat_id=-367886782, text = f"User: {up.message.name}, ID: {up.message.from_user.id}", reply_markup=draw_button_communication()
+    bot.sendMessage(chat_id=-367886782, text = f"User: {up.message.name}, ID: {up.message.from_user.id}", reply_markup=draw_button_communication())
     
 
 #group = -367886782    
